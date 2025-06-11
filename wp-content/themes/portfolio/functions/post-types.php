@@ -14,3 +14,17 @@ register_post_type('projects', [
         'thumbnail',
     ]
 ]);
+
+
+register_post_type('contact_message', [
+    'label' => 'Message de contact',
+    'description' => 'Les envois de formulaire via la page de contact',
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-email',
+    'public' => true,
+    'has_archive' => false,
+    'supports' => [
+        'title',
+        'editor',
+    ]
+]);

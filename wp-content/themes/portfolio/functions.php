@@ -13,6 +13,7 @@ include_once('functions/taxonomies.php');
 include_once('functions/navigations.php');
 include_once('functions/contact-forms.php');
 include_once('functions/options-page.php');
-include_once('fields.php');
 include_once('functions/classes.php');
 include_once ('functions/lang.php');
+
+/*require_once __DIR__ . '/../../../vendor/autoload.php';*/

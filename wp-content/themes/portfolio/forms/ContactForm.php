@@ -1,6 +1,6 @@
 <?php
 
-namespace DW_Theme\Forms;
+namespace forms;
 
 class ContactForm
 {
@@ -32,22 +32,17 @@ class ContactForm
 
     public function handle(array $data): void
     {
-        // Valider les données envoyées.
         if(is_array($errors = $this->validate($data))) {
-            // Mettre les erreurs de validation en session pour pouvoir les afficher sur la page suivante :
             $_SESSION['contact_form_errors'] = $errors;
-            // Retourner à la page précédente pour afficher les erreurs de validation :
             wp_safe_redirect($_SERVER['HTTP_REFERER']);
             exit();
         }
 
-        // Nettoyer les données.
         $data = $this->cleanData($data);
 
         // Sauvegarder le formulaire envoyé en base de données.
         // TODO.
 
-        // Envoyer un mail de notification.
         wp_insert_post([
             'post_type' => 'contact_message',
             'post_title' => $data['first_name'] . ' ' . $data['lastname'],
@@ -55,15 +50,12 @@ class ContactForm
             'post_status' => 'publish',
         ]);
         wp_mail(
-            to: 'toon@whitecube.be',
+            to: 'amandine.fourny@student.hepl.be',
             subject: 'Nouveau message de contact',
             message: $this->generateEmailContent($data),
         );
 
-        // Retourner à la page précédente pour afficher un message de succès.
-        // Mettre un message de succès en session pour pouvoir l'afficher sur la page suivante :
         $_SESSION['contact_form_success'] = 'Merci, '.$data['firstname'].'! Votre message a bien été envoyé.';
-        // Retourner à la page précédente pour afficher les erreurs de validation :
         wp_safe_redirect($_SERVER['HTTP_REFERER']);
         exit();
     }
@@ -116,6 +108,18 @@ class ContactForm
         return 'Ce champ ne peut pas contenir le mot "test".';
     }
 
+    protected function check_in_collection(string $field): bool|string
+    {
+        $collection = require __DIR__ . '/../config/subjects.php';
+        if (array_key_exists($field, $_REQUEST) &&
+            trim($_REQUEST[$field]) !== '' &&
+            !array_key_exists($_REQUEST[$field], $collection)) {
+            return 'Cette proposition ne fait pas partie de celles proposées.';
+        }
+
+        return true;
+    }
+
     protected function cleanData(array $data): array
     {
         $cleaned = [];
@@ -131,6 +135,7 @@ class ContactForm
     {
         return 'Bonjour,'.PHP_EOL
             .'Vous avez un nouveau message de '.$data['firstname'].' '.$data['lastname'].':'.PHP_EOL
+            .'Le sujet est '.$data['subject'].PHP_EOL
             .$data['message'].PHP_EOL.PHP_EOL
             .'----'.PHP_EOL
             .'Adresse mail: '.$data['email'];

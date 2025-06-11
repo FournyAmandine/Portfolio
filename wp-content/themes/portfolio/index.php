@@ -8,6 +8,6 @@
             <div><?= get_the_content(); ?></div>
         <!--on ferme la boucle-->
         <?php endwhile; else: ?>
-        <p>La page est vide</p>
+        <p><?= __trad('La page est vide') ?></p>
         <?php endif; ?>
 <?php get_footer(); ?>
