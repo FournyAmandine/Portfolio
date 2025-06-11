@@ -12,7 +12,7 @@ Ce site présente une sélection de mes projets et montre qui je suis et ce que 
 Je suis Amandine Fourny, passionnée par le web, le css et beaucoup d'autres choses...  
 Ce portfolio me permet de mettre en valeur mes projets, aussi bien personnels que professionnels.
 
-Le site a été réalisé avec :
+## Le site a été réalisé avec :
 - 💡 **WordPress** – CMS principal
 - 🎨 **HTML / CSS / JS**
 - 🧩 **ACF (Advanced Custom Fields)** pour gérer du contenu dynamique
