@@ -1,7 +1,7 @@
 # 🎨 Portfolio – Amandine Fourny
 
 Bienvenue sur le dépôt GitHub de mon portfolio personnel !  
-Ce site présente une sélection de mes projets, mon parcours, et mes compétences dans le web et le design.
+Ce site présente une sélection de mes projets et montre qui je suis et ce que je sais faire.
 
 👉 [Voir le site en ligne](http://amandine-fourny.be/)
 
