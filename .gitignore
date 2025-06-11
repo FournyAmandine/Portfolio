@@ -7,3 +7,5 @@ wp-content/themes/*
 !wp-content/themes/portfolio/
 !wp-content/themes/portfolio/*
 !wp-content/themes/portfolio/**/*
+
+/vendor/
