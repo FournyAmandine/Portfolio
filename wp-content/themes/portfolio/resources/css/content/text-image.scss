@@ -1,0 +1,72 @@
+@import '../settings/breakpoints';
+
+
+  .project{
+    &__image{
+      &-container{
+        flex-direction: column;
+        margin-bottom: 11.25em;
+      }
+      &-content{
+        flex-direction: column;
+        margin: auto auto 1em;
+      }
+      &-title{
+        font-family: Spectral, serif;
+        font-size: 1.5em;
+        color: var(--main-color);
+        margin-bottom: 1em;
+        line-height: 1.5em;
+      }
+      &-content, &-container{
+        display: flex;
+      }
+      &-fig{
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+
+@media (min-width: $nav) {
+  .project{
+    &__image{
+      &-container{
+        flex-direction: row;
+        align-items: center;
+      }
+      &-content{
+        flex-direction: column;
+        max-width: 32.2297955209%;
+        margin-top: 0;
+      }
+      &-title{
+        font-size: 1.875em;
+      }
+    }
+  }
+}
+
+@media (min-width: $max-width) {
+  .project{
+    &__image{
+      &-title{
+        font-size: clamp(1.875em, 3vw, 4em);
+      }
+      &-content{
+        font-size: 1em;
+        margin-top: 4%;
+      }
+      &-fig{
+        width: 100%;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

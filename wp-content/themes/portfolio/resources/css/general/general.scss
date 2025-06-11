@@ -1,0 +1,35 @@
+@import '../settings/breakpoints';
+
+:root{
+  --main-color : #FDE37F;
+  font-family: Cuprum, sans-serif;
+  font-weight: 400;
+}
+
+.sro{
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+}
+
+/** {
+  outline: 1px solid red;
+}*/
+
+main{
+  max-width: $big-desktop;
+  margin: auto;
+}
+
+@media (min-width: $max-width) {
+  div{
+    font-size: clamp(1em, 3vw, 2.7em);
+    line-height: 1.5em;
+  }
+}
+

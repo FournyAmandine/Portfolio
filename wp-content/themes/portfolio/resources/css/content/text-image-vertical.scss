@@ -1,0 +1,59 @@
+@import '../settings/breakpoints';
+
+
+  .project {
+    &__vertical {
+      &-container {
+        margin-bottom: 11.25em;
+      }
+
+      &-fig {
+        margin-left: -9%;
+        img{
+          width: 109%;
+          height: auto;
+        }
+      }
+
+      &-title {
+        color: var(--main-color);
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+        font-family: Spectral, serif;
+      }
+
+      &-text {
+        margin-bottom: 3.125em;
+      }
+    }
+  }
+
+  .postid-37 .project__vertical-container:nth-of-type(4) .project__vertical-fig{
+    margin-left: 0;
+  }
+
+
+@media (min-width: $desktop) {
+  .project {
+    &__vertical {
+      &-title {
+        font-size: 1.875em;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $max-width) {
+  .project {
+    &__vertical {
+      &-title {
+        font-size: clamp(1em, 3vw, 1.5em);
+      }
+      &-text{
+        font-size: clamp(.5em, 3vw, 1em);
+      }
+    }
+  }
+}
+

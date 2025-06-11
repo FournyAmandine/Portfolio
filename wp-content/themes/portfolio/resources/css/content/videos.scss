@@ -1,0 +1,98 @@
+@import '../settings/breakpoints';
+
+
+  .project{
+    &__videos{
+      &-container {
+        margin-bottom: 11.25em;
+      }
+      &-title{
+        color: var(--main-color);
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+        font-family: Spectral, serif;
+      }
+      &-text{
+        margin-bottom: 50px;
+      }
+      &-video{
+        display: none;
+        width: 100%;
+        margin: auto;
+      }
+      &-videos{
+        width: 100%;
+        position: relative;
+        .active{
+          display: block;
+          margin: auto;
+        }
+      }
+      &-carousel{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &__prev, &__next{
+          background: none;
+          color: var(--main-color);
+          border: none;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+@media (min-width: $desktop) {
+  .project{
+    &__videos{
+      &-title{
+        font-size: 1.875em;
+      }
+      &-text{
+        margin-bottom: 50px;
+      }
+      &-video{
+        display: block !important;
+        width: 28.88578089%;
+      }
+      &-video:not(&-video:first-of-type){
+        margin-left: 30px;
+      }
+      &-video:first-of-type{
+        margin: 0;
+      }
+      &-videos{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+      &-carousel{
+        display: block;
+        align-items: center;
+        gap: 10px;
+        &__prev, &__next{
+          display: none;
+        }
+      }
+    }
+  }
+  .postid-33 .project__videos-container:nth-of-type(2)  .project__videos-video:first-of-type{
+    width: 28.4%;
+  }
+  .postid-36 .project__videos-container:nth-of-type(5)  .project__videos-video:first-of-type{
+    margin-left: 23px;
+  }
+}
+
+@media (min-width: $max-width) {
+  .project {
+    &__videos {
+      &-title {
+        font-size: clamp(1.875em, 3vw, 4em);
+      }
+    }
+  }
+}
+
+

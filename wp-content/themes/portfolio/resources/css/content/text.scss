@@ -1,0 +1,47 @@
+@import '../settings/breakpoints';
+
+  .project{
+    &__texte{
+      &-container{
+        margin-bottom: 11.25em;
+      }
+      &-title{
+        font-family: Spectral, serif;
+        font-size: 1.5em;
+        color: var(--main-color);
+        margin-bottom: 1em;
+        line-height: 1.5em;
+      }
+      &-text{
+        p{
+          margin-bottom: 1.25em;
+        }
+        ul{
+          margin-left: 1.875em;
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+
+
+@media (min-width: $desktop) {
+  .project{
+    &__texte{
+      &-title{
+        font-size: 1.875em;
+      }
+    }
+  }
+}
+
+@media (min-width: $max-width) {
+  .project{
+    &__texte{
+      &-title{
+        font-size: clamp(1em, 3vw, 3em);
+      }
+    }
+  }
+}
+

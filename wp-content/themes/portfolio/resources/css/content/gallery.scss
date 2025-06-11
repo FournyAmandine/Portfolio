@@ -1,0 +1,59 @@
+@import '../settings/breakpoints';
+
+
+  .project{
+    &__gallery{
+      &-container{
+        width: 100%;
+        margin-bottom: 11.25em;
+      }
+      &-title{
+        font-family: Spectral, serif;
+        color: var(--main-color);
+        font-size: 1.5em;
+        margin-bottom: 0.6666666667em;
+      }
+      &-text{
+        margin-bottom: 3.125em;
+        p{
+          margin-bottom: 1.125em;
+        }
+      }
+      &-fig{
+        display: flex;
+        justify-content: space-between;
+        overflow-x: scroll;
+        img{
+          margin-right: 2.5em;
+        }
+      }
+    }
+  }
+
+
+@media (min-width: $desktop) {
+  .project{
+    &__gallery{
+      &-title{
+        font-size: 1.875em;
+      }
+    }
+  }
+}
+
+@media (min-width: $max-width) {
+  .project{
+    &__gallery{
+      &-title{
+        font-size: clamp(1.875em, 3vw, 4em);
+      }
+      &-fig{
+        img{
+          margin-right: 1em;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+

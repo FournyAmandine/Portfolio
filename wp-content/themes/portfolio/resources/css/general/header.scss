@@ -1,0 +1,136 @@
+@import '../settings/breakpoints';
+
+  header{
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    height: max-content;
+  }
+  .nav{
+    background-color: rgba(25, 25, 25, 0.85);
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--main-color);
+    position: relative;
+    &__container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: white;
+      display: none;
+      padding: 2rem;
+    }
+    &__item .nav__link{
+      color: var(--main-color);
+      text-decoration: none;
+      font-size: 1.25em;
+    }
+    &__link-home{
+      display: block;
+      text-decoration: none;
+      color: white;
+      font-size: 1.25em;
+      background-image: url('/wp-content/themes/portfolio/resources/img/Logo-tel.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      padding: 5px 0 2px 42px;
+    }
+    &__phone{
+      display: flex;
+      justify-content: space-between;
+    }
+    &__toggle{
+      display: flex;
+      background: none;
+      border: none;
+      margin-left: 50px;
+      z-index: 5;
+    }
+    &__container.is-open {
+      display: flex;
+      z-index: 1;
+      position: absolute;
+      width: 40%;
+      top: 0;
+      left: 54%;
+      height: 100vh;
+      background-image: url('/wp-content/themes/portfolio/resources/img/Fond-burger-menu.svg');
+      text-align: right;
+      border: solid 1px var(--main-color);
+      border-top: none;
+      li{
+        margin-bottom: 3em;
+        margin-right: 25px;
+      }
+      li:first-of-type{
+        margin-top: 70px;
+      }
+    }
+    &__path{
+      stroke: var(--main-color);
+      stroke-linecap: round;
+      transform-origin: center;
+      transition: all 0.3s;
+    }
+  }
+  button.active{
+    path:first-of-type{
+      transform: rotate(45deg) translateY(6px);
+    }
+    path:nth-of-type(2){
+      opacity: 0;
+    }
+    path:last-of-type{
+      transform: rotate(-45deg) translateY(-7px);
+    }
+  }
+
+
+@media (min-width: $nav) {
+  .nav {
+    padding: 2em 8.125em;
+    &__container {
+      display: inline-flex;
+      gap: 2rem;
+      flex-direction: row;
+      position: static;
+      background: none;
+      padding: 0;
+    }
+    &__phone{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: $max-width;
+      margin: auto;
+    }
+    &__link{
+      &-home{
+          background-image: url('/wp-content/themes/portfolio/resources/img/Logo-tel.svg');
+          font-size: 2.25em;
+          padding: 0.8333333333em 0 0.8333333333em 4.1666666667em;
+          width: max-content;
+      }
+    }
+    &__toggle{
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 1rem;
+      z-index: 100;
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  .nav__phone{
+    font-size: 35px;
+  }
+}
+
+
+

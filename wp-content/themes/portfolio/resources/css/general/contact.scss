@@ -1,0 +1,136 @@
+@import '../settings/breakpoints';
+
+  .contact{
+    background-image: url('/wp-content/themes/portfolio/resources/img/Fond-tel-contact.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--main-color);
+    main{
+      width: 70%;
+      margin: 11.25em auto 0;
+    }
+    &__hook{
+      line-height: 1.5em;
+      color: white;
+    }
+    &__hook, &__btn{
+      font-size: 1.25em;
+    }
+    &__title{
+      font-size: 2.1875em;
+      font-family: "Spectral", serif;
+      margin-bottom: 0.8571428571em;
+      font-weight: 400;
+    }
+    &__form{
+      margin: 2.5em auto 6.25em;
+      &-name{
+        flex-direction: column;
+      }
+      &-submit{
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    &__success{
+      p{
+        margin: 30px auto;
+      }
+    }
+    &__btn{
+      font-family: Cuprum, sans-serif;
+      border: none;
+      background-color: var(--main-color);
+      padding: 15px 23px;
+    }
+    &__field{
+      margin-bottom: 3.125em;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      &-input, &-select{
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.65);
+        border: 1px solid white;
+        min-height: 50px;
+      }
+      &-label{
+        margin-bottom: .625em;
+      }
+      &-error{
+        margin-top: .7142857143em;
+        font-size: .875em;
+        color: red;
+      }
+    }
+  }
+
+@media (min-width: $tablet) {
+  .contact{
+    background-image: url('/wp-content/themes/portfolio/resources/img/Fond-contact.svg');
+    &__form{
+      &-name{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        div:nth-of-type(2){
+          margin-left: 1.25em;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@media (min-width: $desktop) {
+  .contact{
+    &__title{
+      font-size: 2.5em;
+      margin-top: 2.5em;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+@media (min-width: $nav) {
+  .contact {
+    &__container {
+      margin-top: 16.25em;
+    }
+  }
+}
+
+
+@media (min-width: $max-width) {
+  .contact {
+    &__container {
+      margin-top: 20%;
+    }
+    &__title{
+      font-size: clamp(2.5em, 3vw, 5em);
+    }
+    &__hook{
+      font-size: clamp(1.25em, 3vw, 2.5em);
+    }
+    &__field{
+      margin-bottom: 10%;
+      &-label{
+        font-size: 0.4em;
+        margin-bottom: 0;
+      }
+      &-input, &-select{
+        min-height: 150px;
+      }
+    }
+    &__btn{
+      font-size: 0.5em;
+    }
+    &__form{
+      &-name{
+        font-size: 1em;
+      }
+    }
+  }
+}

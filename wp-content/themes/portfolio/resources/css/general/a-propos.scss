@@ -1,0 +1,136 @@
+@import '../settings/breakpoints';
+
+
+  .about{
+    background-image: url('/wp-content/themes/portfolio/resources/img/Fond-Tel-Propos.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--main-color);
+    main{
+      width: 78.5%;
+      margin: 11.375em auto 10.3125em;
+    }
+    .propos{
+      &__title{
+        margin-bottom: 1.4285714286em;
+      }
+      &__explanation{
+        p{
+          margin-bottom: 1.25em;
+          color: white;
+          line-height: 1.5em;
+        }
+      }
+      margin-bottom: 8.125em;
+    }
+    .project{
+      &__title{
+        margin-bottom: 0.8571428571em;
+      }
+      &__name-card{
+        font-size: 1.25em;
+      }
+      &__container{
+        overflow-x: scroll;
+        display: flex;
+        margin-bottom: 2.5em;
+        max-width: 100%;
+        gap: 1.375em;
+      }
+      &__card{
+        position: relative;
+        z-index: 0;
+      }
+      &__click{
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+      &__fig{
+        margin-bottom: 0.9375em;
+        border: var(--main-color) solid 1px;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+      &__article{
+        width: 50%;
+        height: auto;
+      }
+      &__more{
+        display: flex;
+        justify-content: center;
+      }
+      &__link{
+        display: inline-block;
+        font-size: 1em;
+        padding: 0.75em 1.15em;
+        background-color: var(--main-color);
+        color: black;
+        text-decoration: none;
+        margin: auto;
+      }
+    }
+
+    .project, .propos{
+      &__title{
+        font-family: Spectral, serif;
+        font-size: clamp(2.1875em, 2.75vw, 5em);
+        line-height: 1.5em;
+      }
+    }
+  }
+
+
+@media (min-width: $nav) {
+  .about{
+    main{
+      width: 60%;
+      margin-top: 16.25em;
+    }
+  }
+}
+
+
+
+
+
+@media (min-width: $desktop) {
+  .about{
+    background-image: url('/wp-content/themes/portfolio/resources/img/Fond-propos.svg');
+  }
+
+  .propos{
+    &__explanation{
+      p{
+        margin-bottom: 1.25em;
+      }
+    }
+    margin-bottom: 6.25em;
+  }
+
+  .project{
+    &__container{
+      justify-content: space-between;
+      margin-bottom: 2.5em;
+    }
+  }
+
+  .project, .propos{
+    &__title{
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  .about{
+    main{
+      margin-top: 15%;
+    }
+    .project__name-card{
+      font-size: 0.5em;
+    }
+  }
+}
+

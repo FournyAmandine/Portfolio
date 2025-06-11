@@ -1,0 +1,163 @@
+@import '../settings/breakpoints';
+
+
+  .single-projects{
+    background-image: url('/wp-content/themes/portfolio/resources/img/Fond-Tel-projet.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    main{
+      margin: 11.25em auto 10.3125em;
+      width: 79%;
+      color:  white;
+      line-height: 1.5em;
+    }
+  }
+
+  .project{
+    &__header{
+      &-title{
+        font-size: 2.1875em;
+        color: var(--main-color);
+        margin-bottom: 0.8571428571em;
+        font-family: Spectral, serif;
+      }
+    }
+    &__presentation{
+      &-container{
+        display: flex;
+        justify-content: center;
+        width: 119%;
+        margin-bottom: 11.25em;
+      }
+      &-video{
+        width: 100%;
+        margin: 1.875em auto auto -8%;
+      }
+      &-title{
+        font-family: "Courier New", sans-serif;
+        font-size: 1.5625em;
+        margin-bottom: 0.8em;
+        line-height: 1.2em;
+      }
+      &-fig{
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+      &-text{
+        ul{
+          margin: 1.5em 1.875em 1.875em;
+          list-style-type: disc;
+        }
+      }
+    }
+    &__source{
+      margin: 11.25em auto;
+      img{
+        width: 100%;
+        height: auto;
+      }
+      &-title{
+        margin-bottom: 1em;
+        font-size: 1.5em;
+        color: var(--main-color);
+      }
+    }
+  }
+
+  .postid-30 .project__presentation-fig, .postid-32 .project__presentation-fig{
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .postid-30 .project__presentation-fig{
+    margin-bottom: 11.25em;
+  }
+
+
+@media (min-width: $tablet) {
+  .single-projects{
+    main{
+      width: 70%;
+    }
+  }
+}
+
+
+@media (min-width: $nav) {
+  .single-projects{
+    main{
+      margin-top: 16.25em;
+    }
+  }
+}
+
+
+@media (min-width: $desktop) {
+  .single-projects{
+    background-image: url('/wp-content/themes/portfolio/resources/img/Fond-single.svg');
+  }
+
+  .project{
+    &__header{
+      &-title{
+        font-size: 2.5em;
+        margin: 0 0 1em -7%;
+      }
+    }
+    &__presentation{
+      &-title{
+        font-size: 2.125em;
+      }
+      &-fig{
+        margin: 6.25em auto 0;
+      }
+    }
+    &__source{
+      &-title{
+        font-size: 1.875em;
+      }
+    }
+  }
+
+  .postid-30 .project__presentation-fig, .postid-32 .project__presentation-fig{
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .postid-30 .project__presentation-fig{
+    margin-bottom: 180px;
+  }
+}
+
+@media (min-width: $max-width) {
+  .single-projects{
+    main{
+      margin-top: 10%;
+    }
+  }
+  .project {
+    &__header {
+      &-title {
+        font-size: clamp(2.1875em, 2.75vw, 5em);
+      }
+    }
+    &__presentation{
+      &-title{
+        font-size: clamp(1.5625em, 3vw, 4em);
+      }
+      &-fig{
+        img{
+          margin-left: 0;
+        }
+      }
+    }
+    &__source{
+      &-title{
+        font-size: clamp(1.5em, 3vw, 3.5em);
+      }
+    }
+  }
+}

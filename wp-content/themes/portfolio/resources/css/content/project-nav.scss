@@ -1,0 +1,25 @@
+@import '../settings/breakpoints';
+
+
+.project{
+  &__nav{
+    display: flex;
+    justify-content: center;
+    &-link{
+      color: var(--main-color);
+      text-decoration: none;
+      font-size: 1.25em;
+      margin-left: 1.5em;
+    }
+  }
+}
+
+@media (min-width: $max-width) {
+  .project{
+    &__nav{
+      &-link{
+        font-size: clamp(1.25em, 3vw, 3em);
+      }
+    }
+  }
+}
