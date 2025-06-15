@@ -51,6 +51,10 @@
           list-style-type: disc;
         }
       }
+      &-links{
+        display: flex;
+        flex-direction: column;
+      }
     }
     &__source{
       margin: 11.25em auto;
@@ -81,6 +85,14 @@
   .single-projects{
     main{
       width: 70%;
+    }
+  }
+  .project{
+    &__presentation{
+      &-links{
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
   }
 }
