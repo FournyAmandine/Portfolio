@@ -1,38 +1,50 @@
 @import '../settings/breakpoints';
 
 
-  .project{
-    &__videos{
+  .project {
+    &__videos {
       &-container {
         margin-bottom: 11.25em;
       }
-      &-title{
+
+      &-title {
         color: var(--main-color);
         font-size: 1.5em;
         margin-bottom: 0.5em;
         font-family: Spectral, serif;
       }
-      &-text{
+
+      &-text {
         margin-bottom: 50px;
       }
-      &-video{
-        display: none;
+
+      &-video {
+        display: block;
         width: 100%;
         margin: auto;
+        flex: 0 0 100%;
+        scroll-snap-align: start;
       }
-      &-videos{
+
+      &-videos {
+        display: flex;
+        gap: 2.5em;
         width: 100%;
         position: relative;
-        .active{
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+
+        .active {
           display: block;
           margin: auto;
         }
       }
-      &-carousel{
+
+      &-carousel {
         display: flex;
         align-items: center;
         gap: 10px;
-        &__prev, &__next{
+        &__prev, &__next {
           background: none;
           color: var(--main-color);
           border: none;
@@ -53,7 +65,7 @@
       }
       &-video{
         display: block !important;
-        width: 28.88578089%;
+        flex: 0 0 28%;
       }
       &-video:not(&-video:first-of-type){
         margin-left: 30px;
@@ -66,6 +78,7 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
+        gap: 1.5em;
       }
       &-carousel{
         display: block;

@@ -1,5 +1,10 @@
 @import '../settings/breakpoints';
 
+
+html {
+  margin-top: 0 !important;
+}
+
 :root{
   --main-color : #FDE37F;
   font-family: Cuprum, sans-serif;
@@ -17,6 +22,25 @@
   margin: -1px;
 }
 
+.site{
+  background-color: var(--main-color);
+  color: black;
+  text-decoration: none;
+  font-size: 1.25em;
+  padding: 1em;
+  font-family: Cuprum, sans-serif;
+  display: block;
+  width: max-content;
+  margin-top: 2em;
+}
+
+.js-only {
+  display: none !important;
+}
+.js-enabled .js-only{
+  display: block !important;
+}
+
 /** {
   outline: 1px solid red;
 }*/
@@ -24,6 +48,12 @@
 main{
   max-width: $big-desktop;
   margin: auto;
+}
+
+@media (min-width: $desktop) {
+  .js-enabled .js-only{
+    display: none !important;
+  }
 }
 
 @media (min-width: $max-width) {

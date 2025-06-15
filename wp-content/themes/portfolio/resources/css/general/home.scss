@@ -18,6 +18,9 @@
       margin-bottom: 1.75em;
       line-height: 1.5em;
     }
+    &__header{
+      position: static;
+    }
     &__desc{
       font-size: 1.25em;
       margin: 2.5em 0 1.875em auto;
