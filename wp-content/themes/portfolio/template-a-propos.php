@@ -3,7 +3,7 @@
 <?php get_header(); ?>
 
 <section class="propos" itemscope itemtype="https://schema.org/Person">
-    <h1 class="propos__title" itemprop="description"><?= get_the_title(); ?></h1>
+    <h1 class="propos__title"><?= get_the_title(); ?></h1>
     <div class="propos__explanation" itemprop="description">
         <?= get_field('explanation') ?>
     </div>
@@ -23,12 +23,12 @@
         if ($news->have_posts()): while ($news->have_posts()): $news->the_post(); ?>
             <article class="project__article">
                 <div class="project__card">
-                    <a href="<?= get_the_permalink(); ?>" class="project__click" itemprop="url">
+                    <a href="<?= get_the_permalink(); ?>" class="project__click" itemprop="url" title="<?= esc_attr(get_the_title()); ?>" aria-label="<?= esc_attr(get_the_title()); ?>">
                         <span class="sro"><?= get_the_title(); ?></span>
                     </a>
                     <div class="project__text">
                         <figure class="project__fig" itemprop="thumbnail">
-                            <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'project__img']); ?>
+                            <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'project__img', 'alt' => esc_attr(get_the_title())]); ?>
                         </figure>
                         <h3 class="project__name-card" itemprop="name"><?= get_the_title(); ?></h3>
                     </div>

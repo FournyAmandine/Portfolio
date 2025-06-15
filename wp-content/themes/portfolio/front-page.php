@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="autho" content="Amandine Fourny">
+    <meta name="author" content="Amandine Fourny">
     <meta name="keywords" content="Portfolio, Amandine Fourny, Amandine, Fourny, Projets">
     <meta name="description" content="Site Portfolio d'Amandine Fourny">
     <title><?= wp_title('•', false, 'right') . get_bloginfo('name') ?></title>
@@ -18,16 +18,22 @@
     <?php wp_head(); ?>
 </head>
 <body class="home" itemscope itemtype="https://schema.org/Person">
-    <h1 class="home__title" itemprop="givenName" itemprop="familyName"><?= get_the_title() ?></h1>
+<header class="home__header">
+    <h1 class="home__title" itemprop="name"><?= get_the_title() ?></h1>
+</header>
+<main role="main">
     <h2 class="home__job" itemprop="jobTitle"><?= get_field('job') ?></h2>
     <div class="home__desc" itemprop="description"> <?= get_field('description') ?> </div>
+</main>
+<footer>
     <nav class="home__nav" aria-label="<?=__trad('Navigation de la page d’accueil')?>">
         <ul class="home__nav-container">
-            <li class="home__nav-item"><a href="<?= get_permalink(pll_get_post('11')) ?>"><?=__trad('Me découvrir') ?></a></li>
-            <li class="home__nav-item"><a href="<?= get_permalink(pll_get_post('13')) ?>"><?= __trad('Projets') ?></a></li>
-            <li class="home__nav-item"><a href="<?= get_permalink(pll_get_post('15')) ?>"><?= __trad('Contact') ?></a></li>
+            <li class="home__nav-item"><a href="<?= get_permalink(pll_get_post('11')) ?>" aria-current="page"><?=__trad('Me découvrir') ?></a></li>
+            <li class="home__nav-item"><a href="<?= get_permalink(pll_get_post('13')) ?>" aria-current="page"><?= __trad('Projets') ?></a></li>
+            <li class="home__nav-item"><a href="<?= get_permalink(pll_get_post('15')) ?>" aria-current="page"><?= __trad('Contact') ?></a></li>
         </ul>
     </nav>
+</footer>
 </body>
 
 

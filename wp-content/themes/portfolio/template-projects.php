@@ -35,9 +35,9 @@ $terms = get_terms([
 $current_filter = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) : '';
 ?>
 
-    <div class="projects__filters">
-        <a href="<?=  esc_url(get_permalink()); ?>" class=" projects__filter <?= ($current_filter === '') ? 'projects__active' : ''; ?>">
-            <?= __('Tout', 'hepl-trad'); ?>
+    <nav class="projects__filters" aria-label="Filtrer les projets par catégorie">
+        <a title="" href="<?=  esc_url(get_permalink()); ?>" class=" projects__filter <?= ($current_filter === '') ? 'projects__active' : ''; ?>">
+            <?= __trad('Tout'); ?>
         </a>
 
         <?php foreach ($terms as $term): ?>
@@ -46,15 +46,15 @@ $current_filter = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) 
                 <?= esc_html($term->name); ?>
             </a>
         <?php endforeach; ?>
-    </div>
-    <div class="projects__articles">
+    </nav>
+    <section class="projects__articles" aria-label="Liste des projets">
 <?php
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
         ?>
         <article class="projects__article" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="projects__card">
-                <a href="<?= get_the_permalink(); ?>" class="projects__click" itemprop="url">
+                <a href="<?= get_the_permalink(); ?>" class="projects__click" itemprop="url" title="Aller voir cet article" aria-label="<?= get_the_title(); ?>">
                     <span class="sro"><?= get_the_title(); ?></span>
                 </a>
                 <figure class="projects__fig" itemprop="thumbnail">
@@ -65,14 +65,14 @@ if ($query->have_posts()) :
         </article>
     <?php
     endwhile; ?>
-    </div>
-    <?php echo '<div class="projects__pagination">';
+    </section>
+    <?php echo '<nav class="projects__pagination">';
     echo paginate_links(array(
         'total' => $query->max_num_pages,
         'current' => $paged,
         'prev_next' => false,
     ));
-    echo '</div>';
+    echo '</nav>';
 
     wp_reset_postdata();
 else :
@@ -82,7 +82,7 @@ endif;
 ?>
 
 <div class="projects__accueil">
-    <a class="projects__accueil-link" href="<?= get_home_url() ?>"><?php __trad('Accueil') ?></a>
+    <a class="projects__accueil-link" title="Retourner à l'accueil" href="<?= get_home_url() ?>"><?php __trad('Accueil') ?></a>
 </div>
 
 <?php get_footer('link'); ?>

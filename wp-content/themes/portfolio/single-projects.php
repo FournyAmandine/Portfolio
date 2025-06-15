@@ -33,7 +33,7 @@ if (have_posts()): while (have_posts()):
             <?= get_field('presentation') ?>
         </div>
         <figure class="project__presentation-fig">
-            <?= wp_get_attachment_image(get_field('main_image'), 'large', attr: ['class' => 'project__img']); ?>
+            <?= wp_get_attachment_image(get_field('main_image'), 'large', attr: ['class' => 'project__img', 'alt'   => esc_attr(get_the_title())]); ?>
         </figure>
         <?php
         $video = get_field('presentation_video');
@@ -87,8 +87,8 @@ if (have_posts()): while (have_posts()):
 
 <?php elseif (get_row_layout() == 'texte_image_verticale'): ?>
     <section class="project__vertical-container" itemscope itemtype="https://schema.org/HowToStep">
-        <div class="project__vertical-content" itemprop="name">
-            <h2 class="project__vertical-title">
+        <div class="project__vertical-content">
+            <h2 class="project__vertical-title" itemprop="name">
                 <?= get_sub_field('title') ?>
             </h2>
             <div class="project__vertical-text" itemprop="text">
@@ -96,7 +96,7 @@ if (have_posts()): while (have_posts()):
             </div>
         </div>
         <figure class="project__vertical-fig">
-            <?= wp_get_attachment_image(get_sub_field('image_step'), 'large', attr: ['class' => 'project__img']); ?>
+            <?= wp_get_attachment_image(get_sub_field('image_step'), 'large', attr: ['class' => 'project__img', 'alt'   => esc_attr(get_the_title())]); ?>
         </figure>
     </section>
 
@@ -111,7 +111,7 @@ if (have_posts()): while (have_posts()):
             </div>
         </div>
         <figure class="project__image-fig">
-            <?= wp_get_attachment_image(get_sub_field('image_step'), 'large', attr: ['class' => 'project__img']); ?>
+            <?= wp_get_attachment_image(get_sub_field('image_step'), 'large', attr: ['class' => 'project__img', 'alt'   => esc_attr(get_the_title())]); ?>
         </figure>
     </section>
 
@@ -124,7 +124,7 @@ if (have_posts()): while (have_posts()):
             <?= get_sub_field('texte') ?>
         </div>
         <div class="project__videos-carousel">
-            <button class="project__videos-carousel__prev">←</button>
+            <button class="project__videos-carousel__prev js-only" aria-label="<?= __trad('Vidéo précédente') ?>">←</button>
 
             <div class="project__videos-videos">
                 <?php
@@ -134,7 +134,7 @@ if (have_posts()): while (have_posts()):
                         $active_class = $index === 0 ? 'active' : '';
                         ?>
                         <video
-                                autoplay muted playsinline preload="auto"
+                                controls loop autoplay muted playsinline preload="auto"
                                 class="project__videos-video <?= $active_class; ?>">
                             <source src="<?php echo esc_url($single_video['video_file']['url']); ?>"
                                     type="<?php echo esc_attr($single_video['video_file']['mime_type']); ?>">
@@ -144,7 +144,7 @@ if (have_posts()): while (have_posts()):
                 endif; ?>
             </div>
 
-            <button class="project__videos-carousel__next">→</button>
+            <button class="project__videos-carousel__next js-only" aria-label="<?= __trad('Vidéo suivante') ?>">→</button>
         </div>
 
     </section>
@@ -195,7 +195,7 @@ $prev_post = get_previous_post(false);
 
 <nav class="project__nav" aria-label="<?= __trad('Navigation de projet') ?>">
     <?php if (!empty($prev_post)): ?>
-        <a class="project__nav-link project__nav-prev" href="<?= get_permalink($prev_post->ID); ?>">
+        <a class="project__nav-link project__nav-prev" href="<?= get_permalink($prev_post->ID); ?>" rel="prev">
 
             ← <?= __trad('Précédent') ?>
         </a>
