@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js-enabled');
 document.querySelectorAll('.project__videos-container').forEach((videoSection) => {
     const videos = videoSection.querySelectorAll('.project__videos-video');
     const prevButton = videoSection.querySelector('.project__videos-carousel__prev');
